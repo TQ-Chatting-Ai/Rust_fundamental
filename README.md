@@ -1,15 +1,16 @@
 ### Index
 
-<ul>
-  <li><a href="#ekosistem">Ekosistem</a></li>
-  <li><a href="#instalasi">Instalasi</a></li>
-  <li><a href="#new_project">New Project</a></li>
-  <li><a href="#main_function">Main Function</a></li>
-</ul>
+  <ul>
+    <li><a href="#ekosistem">Ekosistem</a></li>
+    <li><a href="#instalasi">Instalasi</a></li>
+    <li><a href="#new_project">New Project</a></li>
+    <li><a href="#main_function">Main Function</a></li>
+    <li><a href="#kompilasi">Kompilasi dan Eksekusi</a></li>
+  </ul>
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 # Rust
 
@@ -29,9 +30,9 @@ Keunggulan :
 
 ---
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 <span id="ekosistem"></span>
 
@@ -44,15 +45,15 @@ graph TB
 	Kode --> Binary
 ```
 
-<div align="right">
-  <a href="https://github.blog/2023-11-08-the-state-of-open-source-and-ai">Rust</a>
-</div>
+  <div align="right">
+    <a href="https://github.blog/2023-11-08-the-state-of-open-source-and-ai">Rust</a>
+  </div>
 
 ---
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 <span id="instalasi"></span>
 
@@ -85,15 +86,15 @@ graph TB
         cargo add rand@0.8.5 trpl@0.2.0
         ```
 
-<div align="right">
-  <a href="https://www.rust-lang.org/tools/install">Link instalasi</a>
-</div>
+  <div align="right">
+    <a href="https://www.rust-lang.org/tools/install">Link instalasi</a>
+  </div>
 
 ---
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 <span id="new_project"></span>
 
@@ -140,19 +141,22 @@ rustc main.rs
 
 ---
 
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
 
 <span id="main_function"></span>
 
-## Main function
+## Main Function
 
-- deklarasi fungsi di rust menggunakan `fn`
+Setiap Project rust itu memiliki satu fungsi utama yang disebut Main.
+fn main() adalah kode utama yang pertama dijalankan dalam setiap prgram Rust.
 
 ```rs
-fn main () {}
-fn submain () {}
+fn main() {
+  println!("Hello There!!");
+}
+
 ```
 
 ---
@@ -161,42 +165,57 @@ fn submain () {}
 <br>
 <br>
 
-## Print Macro!
+<span id="kompilasi"></span>
 
-- terdapat 2 metode print, yaitu
+## Kompilasi & Eksekusi
 
-1. `print!()` - untuk menulis
-2. `println!()` - menulis dan diakhiri dengan \n(newline)
-3. `!` macro -
+- cukup menjalankan rustc pada file main.rs dengan kompiler yang tersedia di satu environtment/perangkat.
+- dan setelah menghasilkan file binary './main'. maka file itu bisa dijalankan oleh siapa saja bahkan yang tidakmemiliki depedensi Rust di lingkungannya.
 
-## Cargo
+1. `cargo new` : Untuk membuat project baru,
+    - project default `Hello World`
 
-- Cargo merupakan package Manager milik rust
-- Dengan Cargo bisa melakukan Compilasi, depedency management, dll
-- berbeda denga Java, PHP, C/C++ yang tidak memiliki package manager bawaan.
+    ```bash
+    project_new/
+    ├── Cargo.toml
+    └── src
+        └── main.rs
 
-## Menjalankan Project
+    2 directories, 2 files
+    ```
 
-- dengan Cargo:
+2. `cargo run` : untuk mengetes/menjalankan aplikasi saat proses development.
+    - project binary sementara yang tersimpan di `/project_new/target/debug/project_new`
 
-```bash
-cargo run
+3. `cargo build` : untuk membuild hasil akhir kode program menjadi file binary.
+    - `cargo build` dan `cargo run` hanya menghasilkan file binary yang _unoptimized_ dan berisi beberapa informasi tambahan untuk proses debugging. untuk file biarynya sama-sama tersimpan dalam `tager/debug`
+    - untuk distribution dan/production dianjurkan untuk generate _optimized_ binary:
+    ```bash
+    cargo build --release
+    ```
+    file binarynya akan tersimpan di `/project_new/target/release/project_new`
+
+---
+
+<br>
+<br>
+<br>
+
+<samp>
+
+halo
+there!
+
+```rs
+fn main() {
+  let mut ganronpa = "social distancing";
+  println!("{ganronpa}");
+
+  ganronpa = "no way!";
+  println!("{}", ganronpa);
+}
 ```
 
-## Membuat distribution file
+Good by then
 
-- Distribution file adalah file hasil akhir akhir Project yang nanti akan dijalankan sebagai Aplikasi
-- untuk membuat Distribution File:
-
-```
-Cargo build --release
-```
-
-- `--release` : file binarynya akan tersimpan di `target/release/project.exe`
-
-## Unit Test
-
-- didalam rust, satu Project hanya bisa pakai satu main function
-- alternatif lain adalah dengan menggunakan Unit Test
-
-https://youtu.be/FkASrE05VY4?si=EJtv0kiWWfcID1Qr
+</samp>
